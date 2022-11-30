@@ -1,2 +1,2 @@
 *.csv filter=lfs diff=lfs merge=lfs -text
-*.sql linguist-language=sql
+*.sql linguist-detectable=true

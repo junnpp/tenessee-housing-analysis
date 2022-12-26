@@ -1,6 +1,6 @@
 # Tenessee Housing Analysis
 
-Import, clean, analyze, and visualize [Tenessee housing data](https://github.com/AlexTheAnalyst/PortfolioProjects/blob/main/Nashville%20Housing%20Data%20for%20Data%20Cleaning.xlsx) using [MySQL]() and Tableau. The raw dataset `Housing.csv` contains about 57,000 rows and each row consists of 19 columns.
+Import, clean, analyze, and visualize [Tenessee housing data](https://github.com/AlexTheAnalyst/PortfolioProjects/blob/main/Nashville%20Housing%20Data%20for%20Data%20Cleaning.xlsx) using MySQL and [Tableau](https://public.tableau.com/app/profile/junhyeok.park/viz/NashvilleHousingPriceAnalysis/Dashboard1). The raw dataset `Housing.csv` contains about 57,000 rows and each row consists of 19 columns.
 
 ## `Housing.csv`
 

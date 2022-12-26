@@ -27,7 +27,7 @@ Import, clean, analyze, and visualize [Tenessee housing data](https://github.com
 
 ## Cleaning Process
 
-1. Change data type of each column
+### 1. Change data type of each column
 
 ```mysql
 ALTER TABLE Housing MODIFY SalePrice INTEGER;
@@ -43,14 +43,15 @@ ALTER TABLE Housing MODIFY HalfBath INTEGER;
 
 ```
 
-2. Convert `SaleDate` into datetime format
+### 2. Convert `SaleDate` into datetime format
 
 ```mysql
 UPDATE Housing
 SET SaleDate = STR_TO_DATE(SaleDate, "%m-%d-%Y");
 ```
 
-3. Populate missing property address data
+### 3. Populate missing property address data
+
 There are few rows with missing `PropertyAddress` value which can be filled with property address of other rows with the same `ParcelID` and `UniqueID`. Use self join to population those missing values.
 
 ```mysql
@@ -63,7 +64,7 @@ ON t1.ParcelID = t2.ParcelID AND
 SET t1.PropertyAddress = IFNULL(t1.PropertyAddress, t2.PropertyAddress); 
 ```
 
-4. Split `PropertyAddress` and `OwnerAddress` into separate columns
+### 4. Split `PropertyAddress` and `OwnerAddress` into separate columns
 
 ```mysql
 # Splitting PropertyAddress into seperate columns (Address, City, State)
@@ -116,7 +117,7 @@ ADD OwnerSplitState varchar(255);
 UPDATE Housing
 SET OwnerSplitState = SUBSTRING_INDEX(OwnerAddress, ",", -1);
 ```
-5. Change `Y` and `N` to `Yes` and `No`
+### 5. Change `Y` and `N` to `Yes` and `No`
 
 ```mysql
 SELECT SoldAsVacant, COUNT(*) AS tot
@@ -131,7 +132,7 @@ SET SoldAsVacant = CASE
 		END;
 ```
 
-6. Remove duplicates and unused columns
+### 6. Remove duplicates and unused columns
 
 ```mysql
 WITH RowNumCte AS (
